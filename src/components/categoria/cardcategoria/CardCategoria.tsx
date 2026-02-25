@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
-import type Categoria from '../../../models/Categoria'
+import { Link } from "react-router-dom"
+import type Categoria from "../../../models/Categoria"
 
 interface CardCategoriaProps {
   categoria: Categoria
@@ -13,26 +13,32 @@ function CardCategoria({ categoria }: CardCategoriaProps) {
         Categoria
       </header>
 
-      <p className="p-8 text-2xl bg-slate-100 h-full">
-        {categoria.nome}
-      </p>
+      {/* CONTEÚDO */}
+      <div className="p-6 bg-slate-100 h-full flex flex-col gap-2">
+        <h2 className="text-2xl font-semibold">
+          {categoria.nome}
+        </h2>
 
+        <p className="text-slate-600">
+          {categoria.descricao}
+        </p>
+      </div>
+
+      {/* BOTÕES */}
       <div className="flex">
-
         <Link
           to={`/editarCategoria/${categoria.id}`}
           className="w-full text-white bg-emerald-400 hover:bg-emerald-600 flex items-center justify-center py-2"
         >
-          <button>Editar</button>
+          Editar
         </Link>
 
         <Link
           to={`/deletarCategoria/${categoria.id}`}
           className="w-full text-white bg-red-400 hover:bg-red-600 flex items-center justify-center"
         >
-          <button>Deletar</button>
+          Deletar
         </Link>
-
       </div>
 
     </div>
